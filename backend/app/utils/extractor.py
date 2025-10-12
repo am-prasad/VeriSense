@@ -1,0 +1,91 @@
+# import spacy
+# from typing import List
+
+# # Define the spaCy model to be loaded
+# MODEL_NAME = "en_core_web_trf"
+
+# # Named Entity Recognition (NER) labels often associated with verifiable claims
+# # These typically involve specific people, organizations, locations, or timeframes.
+# VERIFIABLE_ENTITY_LABELS = ["PERSON", "ORG", "GPE", "DATE", "EVENT"]
+
+# # Load the NLP model once when the module is imported.
+# # This ensures faster processing during runtime but can raise an error if the model 
+# # is not installed (which we handle with a print statement).
+# try:
+#     nlp = spacy.load(MODEL_NAME)
+# except OSError as e:
+#     print(f"Error loading spaCy model '{MODEL_NAME}'. Please run: python -m spacy download {MODEL_NAME}")
+#     raise e
+
+# def extract_claims(text: str) -> List[str]:
+#     """
+#     Analyzes text and extracts sentences containing key Named Entities (PERSON, ORG, GPE, etc.)
+#     as candidate claims for verification.
+
+#     Args:
+#         text (str): The input text containing potential claims.
+
+#     Returns:
+#         List[str]: A list of extracted claim sentences.
+#     """
+#     if not text:
+#         return []
+
+#     # Process the text using the loaded spaCy model
+#     doc = nlp(text)
+
+#     # Use a list comprehension for a cleaner and more efficient way to filter sentences.
+#     # A sentence is considered a claim if it contains any of the defined verifiable entity labels.
+#     claims = [
+#         sent.text.strip()
+#         for sent in doc.sents
+#         if any(ent.label_ in VERIFIABLE_ENTITY_LABELS for ent in sent.ents)
+#     ]
+
+#     return claims
+
+
+import spacy
+from typing import List
+
+# spaCy model to use
+MODEL_NAME = "en_core_web_trf"
+
+# Named Entity labels considered verifiable claims
+VERIFIABLE_ENTITY_LABELS = ["PERSON", "ORG", "GPE", "DATE", "EVENT"]
+
+# Load NLP model once at import
+try:
+    nlp = spacy.load(MODEL_NAME)
+except OSError:
+    print(f"Error loading spaCy model '{MODEL_NAME}'. Run: python -m spacy download {MODEL_NAME}")
+    raise
+
+def extract_claims(text: str) -> List[str]:
+    """
+    Extracts sentences containing verifiable entities (PERSON, ORG, GPE, DATE, EVENT)
+    as candidate claims for verification.
+
+    Args:
+        text (str): Input text containing potential claims.
+
+    Returns:
+        List[str]: Extracted claim sentences.
+    """
+    if not text:
+        return []
+
+    doc = nlp(text)
+
+    # Filter sentences with at least one verifiable entity
+    claims = [
+        sent.text.strip()
+        for sent in doc.sents
+        if any(ent.label_ in VERIFIABLE_ENTITY_LABELS for ent in sent.ents)
+    ]
+
+    # Fallback: if no claim detected, treat the full text as one claim
+    if not claims:
+        claims = [text.strip()]
+
+    return claims

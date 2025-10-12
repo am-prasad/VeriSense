@@ -1,0 +1,16 @@
+# Virtual Environment
+# Common names for virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables file with secrets
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE / Editor specific
+.vscode/
+.idea/
