@@ -1,27 +1,3 @@
-# from pydantic import BaseModel
-# from typing import List
-
-# class ClaimRequest(BaseModel):
-#     text: str
-
-# class ClaimResponse(BaseModel):
-#     claims: List[str]
-
-# class ReasoningRequest(BaseModel):
-#     claim: str
-
-# class ReasoningResponse(BaseModel):
-#     claim: str
-#     verdict: str
-#     confidence: float
-
-# class VerificationRequest(BaseModel):
-#     claim: str
-
-# class VerificationResponse(BaseModel):
-#     claim: str
-#     evidence: List[str]
-
 from pydantic import BaseModel
 from typing import List, Optional
 
