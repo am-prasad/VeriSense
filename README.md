@@ -171,13 +171,3 @@ Verisense/
 
 
 ---
-
-## 👨‍💻 Meet the Team
-
-* **Prasad A M** - [LinkedIn](https://linkedin.com/in/amprasad18)
-* **Ningaraju H S**
-
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
