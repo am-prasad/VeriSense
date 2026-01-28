@@ -40,8 +40,7 @@ def transcribe_audio(file_path: str) -> str:
     except sr.RequestError as e:
         transcript = f"Speech API error. Check your network or API limits: {e}"
     except Exception as e:
-        # This handles issues like pydub failing to load non-standard formats, 
-        # or missing FFmpeg/ffprobe if needed by pydub.
+        
         transcript = f"An unexpected transcription error occurred (Missing pydub/FFmpeg dependencies?): {e}"
     finally:
         

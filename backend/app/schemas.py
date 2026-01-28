@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 
-# --- Step 1: Claim Extraction ---
+
 class ClaimRequest(BaseModel):
     text: str
 

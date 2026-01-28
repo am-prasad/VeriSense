@@ -1,21 +1,3 @@
-# from fastapi import FastAPI
-# from app.api.endpoints import news, social, claims, verification, reasoning, voice
-
-# app = FastAPI(title="VeriSense")
-
-# # Define a simple root endpoint for health check/welcome page
-# @app.get("/")
-# def read_root():
-#     return {"message": "Welcome to VeriSense Backend! Access API endpoints at /news, /claims, /voice, etc."}
-
-# # Include all routers
-# app.include_router(news.router, prefix="/news", tags=["News"])
-# app.include_router(social.router, prefix="/social", tags=["Social Media"])
-# app.include_router(claims.router, prefix="/claims", tags=["Claims"])
-# app.include_router(verification.router, prefix="/verification", tags=["Verification"])
-# app.include_router(reasoning.router, prefix="/reasoning", tags=["Reasoning"])
-# app.include_router(voice.router, prefix="/voice", tags=["Voice"])
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.endpoints import news, social, claims, verification, reasoning, voice
