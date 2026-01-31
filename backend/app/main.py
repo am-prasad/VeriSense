@@ -8,7 +8,7 @@ app = FastAPI(title="VeriSense")
 origins = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
-    "https://verisense.onrender.com"
+    "https://verisense-frontend.onrender.com"
 ]
 
 app.add_middleware(
