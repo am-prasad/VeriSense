@@ -2,7 +2,7 @@ import spacy
 from typing import List
 
 # spaCy model to use
-MODEL_NAME = "en_core_web_trf"
+MODEL_NAME = "en_core_web_sm"
 
 # Named Entity labels considered verifiable claims
 VERIFIABLE_ENTITY_LABELS = ["PERSON", "ORG", "GPE", "DATE", "EVENT"]
