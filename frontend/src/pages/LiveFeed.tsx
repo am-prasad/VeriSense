@@ -293,7 +293,7 @@ const LiveFeed = () => {
 
       try {
         const [newsResponse, socialResponse] = await Promise.all([
-          fetch("https://verisense-backend.onrender.com/docsnews/"),
+          fetch("https://verisense-backend.onrender.com/news/"),
           fetch("https://verisense-backend.onrender.com/social/"),
         ]);
 
