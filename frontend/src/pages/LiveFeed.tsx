@@ -293,8 +293,8 @@ const LiveFeed = () => {
 
       try {
         const [newsResponse, socialResponse] = await Promise.all([
-          fetch("http://localhost:8000/news/"),
-          fetch("http://localhost:8000/social/"),
+          fetch("https://verisense-backend.onrender.com/docsnews/"),
+          fetch("https://verisense-backend.onrender.com/social/"),
         ]);
 
         if (!newsResponse.ok || !socialResponse.ok) {
@@ -351,7 +351,7 @@ const LiveFeed = () => {
       } catch (err) {
         console.error(err);
         setError(
-          "Failed to fetch claims. Please ensure the backend API is running on port 8000."
+          "Failed to fetch claims. Please ensure the backend API is running on https://verisense-backend.onrender.com."
         );
       } finally {
         setLoading(false);
